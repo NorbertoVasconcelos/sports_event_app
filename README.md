@@ -35,7 +35,7 @@ The Sports Event App incorporates the following additional features:
 - **Widget Tests:** Ensuring the correctness of individual widgets.
 - **Unit Tests:** Validating the functionality of the underlying business logic.
 
-Note: Error handling e
+Note: Error handling exists, however being locally mocked data, there shouldn't be a case where the error is displayed.
 
 ## Getting Started
 
