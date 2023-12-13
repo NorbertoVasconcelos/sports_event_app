@@ -6,11 +6,11 @@ import 'package:sports_events_app/screens/sport_events_screen.dart';
 import 'package:sports_events_app/styleguide/themes.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const EntryWidget());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class EntryWidget extends StatelessWidget {
+  const EntryWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
