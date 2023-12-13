@@ -6,10 +6,10 @@
 
 ## Screenshots
 
-![Sport Events Screen (light)](assets/screenshots/iphone_se_1.png)
-![Sport Event Details Screen (light)](assets/screenshots/iphone_se_2.png)
-![Sport Events Screen (dark)](assets/screenshots/iphone_se_1_dark.png)
-![Sport Event Details Screen (dark)](assets/screenshots/iphone_se_2_dark.png)
+<img src="assets/screenshots/iphone_se_1.png" alt="Sport Events Screen (light)" width="375" height="667">
+<img src="assets/screenshots/iphone_se_2.png" alt="Sport Event Details Screen (light)" width="375" height="667">
+<img src="assets/screenshots/iphone_se_1_dark.png" alt="Sport Events Screen (dark)" width="375" height="667">
+<img src="assets/screenshots/iphone_se_2_dark.png" alt="Sport Event Details Screen (dark)" width="375" height="667">
 
 ## Technical Specifications
 
