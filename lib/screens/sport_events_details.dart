@@ -12,7 +12,7 @@ class SportEventsDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leadingWidth: 120,
+        leadingWidth: 180,
         leading: InkWell(
           onTap: onBackTap,
           child: Row(children: [

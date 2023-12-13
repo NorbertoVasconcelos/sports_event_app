@@ -13,8 +13,7 @@ class SportEventsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final sportEventNotifier = Provider.of<SportEventNotifier>(context);
-    sportEventNotifier.initialize();
+    final sportEventNotifier = Provider.of<SportEventNotifier>(context)..initialize();
     return Scaffold(
       appBar: SportEventAppBar(
         bottomHeight: DateTabBar.height,

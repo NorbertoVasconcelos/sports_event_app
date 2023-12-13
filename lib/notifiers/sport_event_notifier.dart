@@ -11,7 +11,7 @@ class SportEventNotifier extends ChangeNotifier {
 
   SportEventNotifier({required this.sportEventRepository});
 
-  void initialize() async {
+  Future<void> initialize() async {
     _sportEvents = await sportEventRepository.getSportEvents();
     notifyListeners();
   }

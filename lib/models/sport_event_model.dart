@@ -18,4 +18,13 @@ class SportEventModel {
   });
 
   SportEventDate get date => SportEventDateExtension.fromString(dateStarting);
+
+  static SportEventModel get mock => SportEventModel(
+        iconUrl: 'assets/icons/sports-icon.svg',
+        league: 'English Premier League',
+        teams: 'Arsenal vs Chelsea',
+        sportType: 'Soccer',
+        dateStarting: '2021-08-22',
+        timeStarting: '16:30:00',
+      );
 }

@@ -1,30 +1,69 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:sports_events_app/main.dart';
+import 'package:provider/provider.dart';
+import 'package:sports_events_app/models/sport_event_model.dart';
+import 'package:sports_events_app/notifiers/sport_event_notifier.dart';
+import 'package:sports_events_app/repositories/sport_event_repository.dart';
+import 'package:sports_events_app/screens/sport_events_details.dart';
+import 'package:sports_events_app/screens/sport_events_screen.dart';
+import 'package:sports_events_app/widgets/sport_event_list.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const EntryWidget());
+  testWidgets('SportEventsScreen displays CircularProgressIndicator when loading', (WidgetTester tester) async {
+    await tester.runAsync(() async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: ChangeNotifierProvider(
+            create: (_) => SportEventNotifier(sportEventRepository: LocalSportEventRepository()),
+            child: const SportEventsScreen(),
+          ),
+        ),
+      );
+      // Assert that the CircularProgressIndicator is present
+      expect(find.byType(CircularProgressIndicator), findsOneWidget);
+    });
+  });
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+  testWidgets('SportEventsScreen displays SportEventsDetails when a sport event IS selected',
+      (WidgetTester tester) async {
+    await tester.runAsync(() async {
+      final sportEvent = SportEventModel.mock;
+      final sportEventNotifier = SportEventNotifier(sportEventRepository: LocalSportEventRepository());
+      await sportEventNotifier.initialize();
+      sportEventNotifier.setSportEvent(sportEvent);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+      await tester.pumpWidget(
+        MaterialApp(
+          home: ChangeNotifierProvider.value(
+            value: sportEventNotifier,
+            child: const SportEventsScreen(),
+          ),
+        ),
+      );
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+      await tester.pump();
+
+      final sportEventsDetailsFinder = find.byType(SportEventsDetails);
+      expect(sportEventsDetailsFinder, findsOneWidget);
+    });
+  });
+
+  testWidgets('SportEventsScreen displays SportEventList when sportEvent is NOT selected', (WidgetTester tester) async {
+    await tester.runAsync(() async {
+      final sportEventNotifier = SportEventNotifier(sportEventRepository: LocalSportEventRepository());
+      await sportEventNotifier.initialize();
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: ChangeNotifierProvider.value(
+            value: sportEventNotifier,
+            child: const SportEventsScreen(),
+          ),
+        ),
+      );
+
+      final sportEventListFinder = find.byType(SportEventList);
+      expect(sportEventListFinder, findsOneWidget);
+    });
   });
 }
