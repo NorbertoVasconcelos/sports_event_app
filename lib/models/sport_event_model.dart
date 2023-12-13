@@ -24,7 +24,25 @@ class SportEventModel {
         league: 'English Premier League',
         teams: 'Arsenal vs Chelsea',
         sportType: 'Soccer',
-        dateStarting: '2021-08-22',
+        dateStarting: 'today',
+        timeStarting: '16:30:00',
+      );
+
+  static SportEventModel get mockYesterday => SportEventModel(
+        iconUrl: 'assets/icons/sports-icon.svg',
+        league: 'English Premier League',
+        teams: 'Arsenal vs Chelsea',
+        sportType: 'Soccer',
+        dateStarting: 'yesterday',
+        timeStarting: '16:30:00',
+      );
+
+  static SportEventModel get mockTomorrow => SportEventModel(
+        iconUrl: 'assets/icons/sports-icon.svg',
+        league: 'English Premier League',
+        teams: 'Arsenal vs Chelsea',
+        sportType: 'Soccer',
+        dateStarting: 'tomorrow',
         timeStarting: '16:30:00',
       );
 }
