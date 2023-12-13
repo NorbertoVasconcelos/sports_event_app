@@ -23,6 +23,10 @@ class SportEventsScreen extends StatelessWidget {
         value: sportEventNotifier,
         child: Consumer<SportEventNotifier>(
           builder: (context, sportEventNotifier, child) {
+            if (sportEventNotifier.hasError) {
+              return Center(child: Text(sportEventNotifier.errorMessage ?? 'An error occurred.'));
+            }
+
             if (sportEventNotifier.isLoading) {
               return const Center(child: CircularProgressIndicator());
             }

@@ -35,6 +35,8 @@ The Sports Event App incorporates the following additional features:
 - **Widget Tests:** Ensuring the correctness of individual widgets.
 - **Unit Tests:** Validating the functionality of the underlying business logic.
 
+Note: Error handling e
+
 ## Getting Started
 
 Follow these steps to get started with the Sports Event App:

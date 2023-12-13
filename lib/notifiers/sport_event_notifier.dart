@@ -8,11 +8,16 @@ class SportEventNotifier extends ChangeNotifier {
   final Map<SportEventDate, SportEventModel?> _selectedSportEvent = {};
   SportEventDate _selectedDate = SportEventDate.today;
   List<SportEventModel>? _sportEvents;
+  String? _errorMessage;
 
   SportEventNotifier({required this.sportEventRepository});
 
   Future<void> initialize() async {
-    _sportEvents = await sportEventRepository.getSportEvents();
+    try {
+      _sportEvents = await sportEventRepository.getSportEvents();
+    } catch (e) {
+      _errorMessage = e.toString();
+    }
     notifyListeners();
   }
 
@@ -41,4 +46,6 @@ class SportEventNotifier extends ChangeNotifier {
   }
 
   bool get isLoading => _sportEvents == null;
+  bool get hasError => _errorMessage != null;
+  String? get errorMessage => _errorMessage;
 }
