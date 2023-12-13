@@ -6,10 +6,12 @@
 
 ## Screenshots
 
-<img src="assets/screenshots/iphone_se_1.png" alt="Sport Events Screen (light)" width="375" height="667">
-<img src="assets/screenshots/iphone_se_2.png" alt="Sport Event Details Screen (light)" width="375" height="667">
-<img src="assets/screenshots/iphone_se_1_dark.png" alt="Sport Events Screen (dark)" width="375" height="667">
-<img src="assets/screenshots/iphone_se_2_dark.png" alt="Sport Event Details Screen (dark)" width="375" height="667">
+<div style="display: flex; justify-content: space-between;">
+  <img src="assets/screenshots/iphone_se_1.png" alt="Sport Events Screen (light)" width="375" height="667">
+  <img src="assets/screenshots/iphone_se_2.png" alt="Sport Event Details Screen (light)" width="375" height="667">
+  <img src="assets/screenshots/iphone_se_1_dark.png" alt="Sport Events Screen (dark)" width="375" height="667">
+  <img src="assets/screenshots/iphone_se_2_dark.png" alt="Sport Event Details Screen (dark)" width="375" height="667">
+</div>
 
 ## Technical Specifications
 
